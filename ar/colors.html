@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول ألوان RAL - مصنع الطلاء بالبودرة في الأردن</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header { background: #1a2a4a; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: bold; color: #f0c040; }
+        .logo span { color: white; font-weight: normal; }
+        nav a { color: white; margin-right: 25px; font-size: 16px; transition: color 0.3s; }
+        nav a:hover { color: #f0c040; }
+        .lang-switch { background: #f0c040; color: #1a2a4a; padding: 8px 16px; border-radius: 5px; font-weight: bold; }
+        .lang-switch:hover { background: #ffd966; }
+
+        .page-header { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a7a 100%); color: white; padding: 50px 0; text-align: center; }
+        .page-header h1 { font-size: 40px; }
+        .page-header p { font-size: 18px; opacity: 0.8; margin-top: 10px; }
+
+        .color-grid-full { padding: 50px 0; }
+        .color-grid-full .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        .color-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
+        .color-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+        .color-card .swatch { height: 120px; border-bottom: 3px solid #f0c040; }
+        .color-card .info { padding: 15px; }
+        .color-card .code { font-weight: bold; font-size: 18px; color: #1a2a4a; }
+        .color-card .name { color: #666; font-size: 14px; margin-top: 3px; }
+        .color-card .finish { color: #999; font-size: 12px; margin-top: 5px; background: #f0f2f5; display: inline-block; padding: 2px 12px; border-radius: 10px; }
+
+        .filter-bar { background: white; padding: 20px 0; border-bottom: 2px solid #f0c040; margin-bottom: 30px; }
+        .filter-bar .container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .filter-bar button { padding: 10px 25px; border: none; background: #f0f2f5; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        .filter-bar button:hover, .filter-bar button.active { background: #f0c040; color: #1a2a4a; }
+
+        footer { background: #1a2a4a; color: #ccc; padding: 40px 0; margin-top: 50px; }
+        footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 8px; }
+        footer ul li a { color: #ccc; transition: color 0.3s; }
+        footer ul li a:hover { color: #f0c040; }
+        footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; font-size: 14px; }
+            .page-header h1 { font-size: 28px; }
+            .color-grid-full .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">JPC <span>| الطلاء بالبودرة</span></div>
+        <nav>
+            <a href="/ar/index.html">الرئيسية</a>
+            <a href="/ar/services.html">خدماتنا</a>
+            <a href="/ar/colors.html">الألوان</a>
+            <a href="/ar/about.html">عن المصنع</a>
+            <a href="/ar/contact.html">اتصل بنا</a>
+            <a href="/en/colors.html" class="lang-switch">English</a>
+        </nav>
+    </div>
+</header>
+
+<section class="page-header">
+    <div class="container">
+        <h1>🎨 جدول ألوان RAL</h1>
+        <p>تصفح مجموعتنا الواسعة من ألوان الطلاء بالبودرة المتوفرة في مصنعنا في الأردن</p>
+    </div>
+</section>
+
+<div class="filter-bar">
+    <div class="container">
+        <button class="active">جميع الألوان</button>
+        <button>أحمر وبرتقالي</button>
+        <button>أصفر</button>
+        <button>أخضر</button>
+        <button>أزرق</button>
+        <button>رمادي وأبيض</button>
+        <button>أسود</button>
+    </div>
+</div>
+
+<section class="color-grid-full">
+    <div class="container">
+        <div class="grid">
+
+            <div class="color-card">
+                <div class="swatch" style="background:#d4a017;"></div>
+                <div class="info">
+                    <div class="code">RAL 1007</div>
+                    <div class="name">أصفر زعفراني</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#c4d4d4;"></div>
+                <div class="info">
+                    <div class="code">RAL 9010</div>
+                    <div class="name">أبيض نقي</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#2c3e50;"></div>
+                <div class="info">
+                    <div class="code">RAL 7016</div>
+                    <div class="name">رمادي أنثراسيت</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#b22234;"></div>
+                <div class="info">
+                    <div class="code">RAL 3020</div>
+                    <div class="name">أحمر مروري</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#1b4d3e;"></div>
+                <div class="info">
+                    <div class="code">RAL 6005</div>
+                    <div class="name">أخضر طحلبي</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#0057b8;"></div>
+                <div class="info">
+                    <div class="code">RAL 5015</div>
+                    <div class="name">أزرق سماوي</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#0a0a0a;"></div>
+                <div class="info">
+                    <div class="code">RAL 9005</div>
+                    <div class="name">أسود جيت</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#e8d5b5;"></div>
+                <div class="info">
+                    <div class="code">RAL 1015</div>
+                    <div class="name">عاجي فاتح</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#9b1b30;"></div>
+                <div class="info">
+                    <div class="code">RAL 3002</div>
+                    <div class="name">أحمر قرمزي</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#b8b8b8;"></div>
+                <div class="info">
+                    <div class="code">RAL 7035</div>
+                    <div class="name">رمادي فاتح</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#4d9e3a;"></div>
+                <div class="info">
+                    <div class="code">RAL 6018</div>
+                    <div class="name">أخضر مصفر</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#1f3a7a;"></div>
+                <div class="info">
+                    <div class="code">RAL 5002</div>
+                    <div class="name">أزرق فوق بحري</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#442a1a;"></div>
+                <div class="info">
+                    <div class="code">RAL 8017</div>
+                    <div class="name">بني شوكولاتة</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#9a9a9a;"></div>
+                <div class="info">
+                    <div class="code">RAL 7042</div>
+                    <div class="name">رمادي مروري A</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#e8b830;"></div>
+                <div class="info">
+                    <div class="code">RAL 1023</div>
+                    <div class="name">أصفر مروري</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="swatch" style="background:#7cb0a0;"></div>
+                <div class="info">
+                    <div class="code">RAL 6034</div>
+                    <div class="name">تركواز باستيل</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div>
+            <h4>الطلاء بالبودرة في الأردن</h4>
+            <p style="color:#999;font-size:14px;">خدمات طلاء كهروستاتيكي احترافية للتطبيقات الصناعية والتجارية في الأردن.</p>
+        </div>
+        <div>
+            <h4>روابط سريعة</h4>
+            <ul>
+                <li><a href="/ar/services.html">خدماتنا</a></li>
+                <li><a href="/ar/colors.html">جدول الألوان</a></li>
+                <li><a href="/ar/about.html">عن المصنع</a></li>
+                <li><a href="/ar/contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>اتصل بنا</h4>
+            <ul>
+                <li>📞 +962 7 1234 5678</li>
+                <li>✉️ info@jordanpowdercoating.com</li>
+                <li>📍 المدينة الصناعية، عمان</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bottom">© 2026 جميع الحقوق محفوظة - مصنع الطلاء بالبودرة في الأردن</div>
+    </div>
+</footer>
+
+</body>
+</html>
