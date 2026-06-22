@@ -36,4 +36,126 @@
         .contact-form { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
         .contact-form h2 { color: #1a2a4a; margin-bottom: 20px; }
         .contact-form label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
-       
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px; font-size: 16px; }
+        .contact-form textarea { height: 120px; resize: vertical; }
+        .contact-form button { background: #f0c040; color: #1a2a4a; padding: 14px 40px; border: none; border-radius: 30px; font-weight: bold; font-size: 18px; cursor: pointer; transition: background 0.3s; }
+        .contact-form button:hover { background: #ffd966; }
+
+        footer { background: #1a2a4a; color: #ccc; padding: 40px 0; margin-top: 50px; }
+        footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 8px; }
+        footer ul li a { color: #ccc; transition: color 0.3s; }
+        footer ul li a:hover { color: #f0c040; }
+        footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; font-size: 14px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">JPC <span>| الطلاء بالبودرة</span></div>
+        <nav>
+            <a href="/ar/index.html">الرئيسية</a>
+            <a href="/ar/services.html">خدماتنا</a>
+            <a href="/ar/colors.html">الألوان</a>
+            <a href="/ar/about.html">عن المصنع</a>
+            <a href="/ar/contact.html">اتصل بنا</a>
+            <a href="/en/contact.html" class="lang-switch">English</a>
+        </nav>
+    </div>
+</header>
+
+<section class="page-header">
+    <div class="container">
+        <h1>📞 اتصل بنا</h1>
+        <p>احصل على عرض سعر أو استفسر عن احتياجاتك من الطلاء بالبودرة</p>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>تواصل معنا</h2>
+                <div class="item">
+                    <strong>📍 العنوان</strong>
+                    <span>المدينة الصناعية، عمان، الأردن</span>
+                </div>
+                <div class="item">
+                    <strong>📞 الهاتف</strong>
+                    <span>+962 7 1234 5678</span>
+                </div>
+                <div class="item">
+                    <strong>✉️ البريد الإلكتروني</strong>
+                    <span>info@jordanpowdercoating.com</span>
+                </div>
+                <div class="item">
+                    <strong>⏰ ساعات العمل</strong>
+                    <span>الأحد - الخميس: 8:00 ص - 6:00 م</span>
+                </div>
+                <div class="map-placeholder">
+                    📍 سيتم إضافة خريطة جوجل هنا
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>اطلب عرض سعر</h2>
+                <form>
+                    <label>الاسم الكامل</label>
+                    <input type="text" placeholder="أحمد محمد">
+
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" placeholder="ahmed@example.com">
+
+                    <label>رقم الهاتف</label>
+                    <input type="tel" placeholder="+962 7 1234 5678">
+
+                    <label>الرسالة / تفاصيل المشروع</label>
+                    <textarea placeholder="أخبرنا عن مشروعك، حجم القطع، الكمية، ومتطلبات الألوان..."></textarea>
+
+                    <button type="submit">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div>
+            <h4>الطلاء بالبودرة في الأردن</h4>
+            <p style="color:#999;font-size:14px;">خدمات طلاء كهروستاتيكي احترافية للتطبيقات الصناعية والتجارية في الأردن.</p>
+        </div>
+        <div>
+            <h4>روابط سريعة</h4>
+            <ul>
+                <li><a href="/ar/services.html">خدماتنا</a></li>
+                <li><a href="/ar/colors.html">جدول الألوان</a></li>
+                <li><a href="/ar/about.html">عن المصنع</a></li>
+                <li><a href="/ar/contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>اتصل بنا</h4>
+            <ul>
+                <li>📞 +962 7 1234 5678</li>
+                <li>✉️ info@jordanpowdercoating.com</li>
+                <li>📍 المدينة الصناعية، عمان</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bottom">© 2026 جميع الحقوق محفوظة - مصنع الطلاء بالبودرة في الأردن</div>
+    </div>
+</footer>
+
+</body>
+</html>
