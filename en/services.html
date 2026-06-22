@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Services - Jordan Powder Coating</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; line-height:1.6; color:#333; background:#f8f9fa; }
+        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+        header { background:#1a2a4a; color:white; padding:15px 0; position:sticky; top:0; z-index:100; }
+        header .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .logo { font-size:24px; font-weight:bold; color:#f0c040; }
+        .logo span { color:white; font-weight:normal; }
+        nav a { color:white; margin-left:25px; font-size:16px; transition:color 0.3s; }
+        nav a:hover { color:#f0c040; }
+        .lang-switch { background:#f0c040; color:#1a2a4a; padding:8px 16px; border-radius:5px; font-weight:bold; }
+        .lang-switch:hover { background:#ffd966; }
+        .page-header { background:linear-gradient(135deg,#1a2a4a 0%,#2a4a7a 100%); color:white; padding:50px 0; text-align:center; }
+        .page-header h1 { font-size:40px; }
+        .page-header p { font-size:18px; opacity:0.8; margin-top:10px; }
+        .services-grid { padding:50px 0; }
+        .services-grid .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+        .service-card { background:white; border-radius:10px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.08); border-bottom:4px solid #f0c040; transition:transform 0.3s; }
+        .service-card:hover { transform:translateY(-5px); }
+        .service-card .icon { font-size:40px; margin-bottom:15px; }
+        .service-card h3 { color:#1a2a4a; margin-bottom:10px; }
+        .service-card p { color:#666; font-size:15px; }
+        .service-card ul { list-style:disc; padding-left:20px; color:#666; font-size:14px; margin-top:10px; }
+        .service-card ul li { margin-bottom:5px; }
+        .cta-section { background:#1a2a4a; color:white; padding:60px 0; text-align:center; }
+        .cta-section h2 { font-size:32px; margin-bottom:15px; }
+        .cta-section p { font-size:18px; opacity:0.8; margin-bottom:30px; }
+        .btn { display:inline-block; background:#f0c040; color:#1a2a4a; padding:14px 40px; border-radius:30px; font-weight:bold; font-size:18px; transition:all 0.3s; }
+        .btn:hover { background:#ffd966; transform:scale(1.02); }
+        footer { background:#1a2a4a; color:#ccc; padding:40px 0; margin-top:50px; }
+        footer .container { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; }
+        footer h4 { color:white; margin-bottom:15px; font-size:18px; }
+        footer ul { list-style:none; }
+        footer ul li { margin-bottom:8px; }
+        footer ul li a { color:#ccc; transition:color 0.3s; }
+        footer ul li a:hover { color:#f0c040; }
+        footer .bottom { text-align:center; padding-top:30px; border-top:1px solid #333; margin-top:30px; font-size:14px; }
+        @media (max-width:768px) { header .container { flex-direction:column; gap:10px; } nav a { margin:0 10px; font-size:14px; } .page-header h1 { font-size:28px; } }
+    </style>
+</head>
+<body>
+<header><div class="container"><div class="logo">JPC <span>| Powder Coating</span></div><nav><a href="/en/index.html">Home</a><a href="/en/services.html">Services</a><a href="/en/colors.html">Colors</a><a href="/en/about.html">About</a><a href="/en/contact.html">Contact</a><a href="/ar/services.html" class="lang-switch">العربية</a></nav></div></header>
+<section class="page-header"><div class="container"><h1>🔧 Our Services</h1><p>Comprehensive powder coating solutions for all your industrial needs</p></div></section>
+<section class="services-grid"><div class="container"><div class="grid">
+<div class="service-card"><div class="icon">🏗️</div><h3>Industrial Coating</h3><p>Heavy-duty powder coating for construction equipment, steel structures, and industrial machinery.</p><ul><li>Parts up to 6 meters</li><li>High corrosion resistance</li><li>Thickness up to 120 microns</li></ul></div>
+<div class="service-card"><div class="icon">🚗</div><h3>Automotive Parts</h3><p>Precision coating for automotive components, wheels, and custom parts with excellent durability.</p><ul><li>Alloy wheels</li><li>Suspension parts</li><li>Engine components</li></ul></div>
+<div class="service-card"><div class="icon">🏠</div><h3>Architectural Coating</h3><p>Aesthetic and durable coatings for building facades, railings, window frames, and metal doors.</p><ul><li>Aluminum profiles</li><li>Steel railings</li><li>Custom colors</li></ul></div>
+<div class="service-card"><div class="icon">🧹</div><h3>Surface Preparation</h3><p>Complete pretreatment services including sandblasting, phosphating, and chemical cleaning.</p><ul><li>Sandblasting</li><li>Degreasing</li><li>Phosphating</li></ul></div>
+<div class="service-card"><div class="icon">🎨</div><h3>Custom Color Matching</h3><p>We can match any color you need, including custom RAL, NCS, or Pantone shades.</p><ul><li>RAL color chart</li><li>Custom formulations</li><li>Gloss & satin finishes</li></ul></div>
+<div class="service-card"><div class="icon">📦</div><h3>Bulk & Long-Run Coating</h3><p>High-volume coating services for large production runs with consistent quality.</p><ul><li>Fast turnaround</li><li>Competitive pricing</li><li>Consistent quality</li></ul></div>
+</div></div></section>
+<section class="cta-section"><div class="container"><h2>Ready to Start Your Project?</h2><p>Contact us today for a free quote and consultation.</p><a href="/en/contact.html" class="btn">Request a Quote</a></div></section>
+<footer><div class="container"><div><h4>Jordan Powder Coating</h4><p style="color:#999;font-size:14px;">Professional electrostatic powder coating services for industrial and commercial applications in Jordan.</p></div><div><h4>Quick Links</h4><ul><li><a href="/en/services.html">Services</a></li><li><a href="/en/colors.html">Color Chart</a></li><li><a href="/en/about.html">About Us</a></li><li><a href="/en/contact.html">Contact</a></li></ul></div><div><h4>Contact</h4><ul><li>📞 +962 7 1234 5678</li><li>✉️ info@jordanpowdercoating.com</li><li>📍 Industrial City, Amman</li></ul></div></div><div class="container"><div class="bottom">© 2026 Jordan Powder Coating. All Rights Reserved.</div></div></footer>
+</body>
+</html>
