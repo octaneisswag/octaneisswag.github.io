@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطلاء بالبودرة في الأردن - خدمات صناعية احترافية</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ===== HEADER / NAV ===== */
+        header { background: #1a2a4a; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: bold; color: #f0c040; }
+        .logo span { color: white; font-weight: normal; }
+        nav a { color: white; margin-right: 25px; font-size: 16px; transition: color 0.3s; }
+        nav a:hover { color: #f0c040; }
+        .lang-switch { background: #f0c040; color: #1a2a4a; padding: 8px 16px; border-radius: 5px; font-weight: bold; }
+        .lang-switch:hover { background: #ffd966; }
+
+        /* ===== HERO SECTION ===== */
+        .hero { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a7a 100%); color: white; padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 15px; }
+        .hero h1 span { color: #f0c040; }
+        .hero p { font-size: 20px; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
+        .btn { display: inline-block; background: #f0c040; color: #1a2a4a; padding: 14px 40px; border-radius: 30px; font-weight: bold; font-size: 18px; transition: all 0.3s; }
+        .btn:hover { background: #ffd966; transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 2px solid #f0c040; color: #f0c040; }
+        .btn-outline:hover { background: #f0c040; color: #1a2a4a; }
+
+        /* ===== QUICK INFO BANNER ===== */
+        .quick-info { background: #f8f9fa; padding: 30px 0; border-bottom: 3px solid #f0c040; }
+        .quick-info .container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
+        .quick-info .info-item { font-size: 16px; }
+        .quick-info .info-item strong { display: block; font-size: 18px; color: #1a2a4a; }
+
+        /* ===== FEATURES / SERVICES PREVIEW ===== */
+        .features { padding: 60px 0; background: white; }
+        .features h2 { text-align: center; font-size: 36px; color: #1a2a4a; margin-bottom: 15px; }
+        .features .subtitle { text-align: center; color: #666; font-size: 18px; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card { background: #f8f9fa; padding: 30px 25px; border-radius: 10px; text-align: center; transition: all 0.3s; border-bottom: 4px solid #f0c040; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .card .icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { color: #1a2a4a; margin-bottom: 10px; }
+        .card p { color: #666; font-size: 15px; }
+
+        /* ===== COLOR PREVIEW SECTION ===== */
+        .color-preview { background: #f0f2f5; padding: 60px 0; }
+        .color-preview h2 { text-align: center; font-size: 36px; color: #1a2a4a; margin-bottom: 15px; }
+        .color-preview .subtitle { text-align: center; color: #666; font-size: 18px; margin-bottom: 40px; }
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .color-swatch { background: white; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .color-swatch:hover { transform: scale(1.05); }
+        .color-swatch .box { height: 80px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #ddd; }
+        .color-swatch .code { font-weight: bold; color: #1a2a4a; font-size: 14px; }
+        .color-swatch .name { color: #666; font-size: 13px; }
+        .view-all { text-align: center; margin-top: 30px; }
+
+        /* ===== FOOTER ===== */
+        footer { background: #1a2a4a; color: #ccc; padding: 40px 0; }
+        footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 8px; }
+        footer ul li a { color: #ccc; transition: color 0.3s; }
+        footer ul li a:hover { color: #f0c040; }
+        footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 17px; }
+            header .container { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; font-size: 14px; }
+            .quick-info .container { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+        <div class="logo">JPC <span>| الطلاء بالبودرة</span></div>
+        <nav>
+            <a href="/ar/index.html">الرئيسية</a>
+            <a href="/ar/services.html">خدماتنا</a>
+            <a href="/ar/colors.html">الألوان</a>
+            <a href="/ar/about.html">عن المصنع</a>
+            <a href="/ar/contact.html">اتصل بنا</a>
+            <a href="/en/index.html" class="lang-switch">English</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <h1>خدمات <span>الطلاء بالبودرة</span> الصناعية في الأردن</h1>
+        <p>طلاء كهروستاتيكي عالي الجودة للأجزاء المعدنية والمعدات الصناعية والمكونات المعمارية. سرعة في التسليم، أسعار تنافسية، وجودة معتمدة.</p>
+        <a href="/ar/contact.html" class="btn">اطلب عرض سعر</a>
+        <a href="/ar/colors.html" class="btn btn-outline" style="margin-right:15px;">عرض الألوان</a>
+    </div>
+</section>
+
+<!-- ===== QUICK INFO ===== -->
+<section class="quick-info">
+    <div class="container">
+        <div class="info-item"><strong>📞 اتصل بنا</strong> +962 7 1234 5678</div>
+        <div class="info-item"><strong>📍 الموقع</strong> المدينة الصناعية، عمان، الأردن</div>
+        <div class="info-item"><strong>✉️ البريد الإلكتروني</strong> info@jordanpowdercoating.com</div>
+        <div class="info-item"><strong>⏰ ساعات العمل</strong> الأحد-الخميس 8:00 ص - 6:00 م</div>
+    </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features">
+    <div class="container">
+        <h2>لماذا تختارنا</h2>
+        <p class="subtitle">خدمات طلاء بالبودرة احترافية مصممة حسب احتياجاتك الصناعية</p>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🏭</div>
+                <h3>طاقة إنتاجية صناعية</h3>
+                <p>أفران كبيرة قادرة على معالجة القطع بطول يصل إلى 6 أمتار مع إنتاجية عالية الحجم.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>مجموعة واسعة من الألوان</h3>
+                <p>جدول ألوان RAL كامل مع إمكانية مطابقة الألوان المخصصة حسب متطلباتك.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>تجهيز الأسطح</h3>
+                <p>عملية معالجة مسبقة كاملة تشمل إزالة الشحوم والفوسفات والسفع الرملي للحصول على التصاق فائق.</p>
+            </div>
+            <div class="card">
+                <div class="icon">✅</div>
+                <h3>جودة مضمونة</h3>
+                <p>عمليات معتمدة وفق معايير ISO مع اختبارات السمك والالتصاق ومقاومة التآكل بالرش الملحي.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COLOR PREVIEW ===== -->
+<section class="color-preview">
+    <div class="container">
+        <h2>ألوان RAL الأكثر طلباً</h2>
+        <p class="subtitle">تصفح أكثر ألوان الطلاء بالبودرة طلباً في مصنعنا</p>
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="box" style="background:#d4a017;"></div>
+                <div class="code">RAL 1007</div>
+                <div class="name">أصفر زعفراني</div>
+            </div>
+            <div class="color-swatch">
+                <div class="box" style="background:#c4d4d4;"></div>
+                <div class="code">RAL 9010</div>
+                <div class="name">أبيض نقي</div>
+            </div>
+            <div class="color-swatch">
+                <div class="box" style="background:#2c3e50;"></div>
+                <div class="code">RAL 7016</div>
+                <div class="name">رمادي أنثراسيت</div>
+            </div>
+            <div class="color-swatch">
+                <div class="box" style="background:#b22234;"></div>
+                <div class="code">RAL 3020</div>
+                <div class="name">أحمر مروري</div>
+            </div>
+            <div class="color-swatch">
+                <div class="box" style="background:#1b4d3e;"></div>
+                <div class="code">RAL 6005</div>
+                <div class="name">أخضر طحلبي</div>
+            </div>
+            <div class="color-swatch">
+                <div class="box" style="background:#0057b8;"></div>
+                <div class="code">RAL 5015</div>
+                <div class="name">أزرق سماوي</div>
+            </div>
+        </div>
+        <div class="view-all">
+            <a href="/ar/colors.html" class="btn">عرض جميع الألوان</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div>
+            <h4>الطلاء بالبودرة في الأردن</h4>
+            <p style="color:#999;font-size:14px;">خدمات طلاء كهروستاتيكي احترافية للتطبيقات الصناعية والتجارية في الأردن.</p>
+        </div>
+        <div>
+            <h4>روابط سريعة</h4>
+            <ul>
+                <li><a href="/ar/services.html">خدماتنا</a></li>
+                <li><a href="/ar/colors.html">جدول الألوان</a></li>
+                <li><a href="/ar/about.html">عن المصنع</a></li>
+                <li><a href="/ar/contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>اتصل بنا</h4>
+            <ul>
+                <li>📞 +962 7 1234 5678</li>
+                <li>✉️ info@jordanpowdercoating.com</li>
+                <li>📍 المدينة الصناعية، عمان</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bottom">© 2026 جميع الحقوق محفوظة - مصنع الطلاء بالبودرة في الأردن</div>
+    </div>
+</footer>
+
+</body>
+</html>
