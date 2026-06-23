@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,6 @@
         .quick-info .container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
         .quick-info .info-item { font-size: 16px; }
         .quick-info .info-item strong { display: block; font-size: 18px; color: #1a2a4a; }
-        .quick-info .info-item i { font-size: 22px; color: #f0c040; margin-right: 8px; }
 
         /* ===== FEATURES / SERVICES PREVIEW ===== */
         .features { padding: 60px 0; background: white; }
@@ -71,6 +70,27 @@
         footer ul li a:hover { color: #f0c040; }
         footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
 
+        /* ===== WHATSAPP FLOATING BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
@@ -78,10 +98,14 @@
             header .container { flex-direction: column; gap: 10px; }
             nav a { margin: 0 10px; font-size: 14px; }
             .quick-info .container { flex-direction: column; gap: 10px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
+
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/962775537233" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
 
 <!-- ===== HEADER ===== -->
 <header>
@@ -142,22 +166,27 @@
             <div class="card">
                 <div class="icon">✅</div>
                 <h3>Quality Guaranteed</h3>
-             <p>Every project is completed with careful attention to detail, delivering a durable and professional finish built to last.</p>
+                <p>Every project is completed with careful attention to detail, delivering a durable and professional finish built to last.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== COLOR PREVIEW ===== -->
+<!-- ===== COLOR PREVIEW (UPDATED TO MATCH ARABIC) ===== -->
 <section class="color-preview">
     <div class="container">
         <h2>Popular RAL Colors</h2>
         <p class="subtitle">Browse our most requested powder coating colors</p>
         <div class="color-grid">
             <div class="color-swatch">
-                <div class="box" style="background:#d4a017;"></div>
-                <div class="code">RAL 1007</div>
-                <div class="name">Saffron Yellow</div>
+                <div class="box" style="background:#d4c4a8;"></div>
+                <div class="code">RAL 8900</div>
+                <div class="name">Light Beige</div>
+            </div>
+            <div class="color-swatch">
+                <div class="box" style="background:#e3dac9;"></div>
+                <div class="code">RAL 1013</div>
+                <div class="name">Oyster White</div>
             </div>
             <div class="color-swatch">
                 <div class="box" style="background:#c4d4d4;"></div>
@@ -165,24 +194,19 @@
                 <div class="name">Pure White</div>
             </div>
             <div class="color-swatch">
-                <div class="box" style="background:#2c3e50;"></div>
-                <div class="code">RAL 7016</div>
-                <div class="name">Anthracite Grey</div>
+                <div class="box" style="background:#4a4f54;"></div>
+                <div class="code">RAL 7024</div>
+                <div class="name">Granite Grey</div>
             </div>
             <div class="color-swatch">
-                <div class="box" style="background:#b22234;"></div>
-                <div class="code">RAL 3020</div>
-                <div class="name">Traffic Red</div>
+                <div class="box" style="background:#0a0a0a;"></div>
+                <div class="code">RAL 9005</div>
+                <div class="name">Jet Black</div>
             </div>
             <div class="color-swatch">
-                <div class="box" style="background:#1b4d3e;"></div>
-                <div class="code">RAL 6005</div>
-                <div class="name">Moss Green</div>
-            </div>
-            <div class="color-swatch">
-                <div class="box" style="background:#0057b8;"></div>
-                <div class="code">RAL 5015</div>
-                <div class="name">Sky Blue</div>
+                <div class="box" style="background:#d9e0e6;"></div>
+                <div class="code">RAL 9016</div>
+                <div class="name">Traffic White</div>
             </div>
         </div>
         <div class="view-all">
@@ -191,11 +215,11 @@
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ===== FOOTER (UPDATED TO ALEX POWDER COATING) ===== -->
 <footer>
     <div class="container">
         <div>
-            <h4>Jordan Powder Coating</h4>
+            <h4>Alex Powder Coating</h4>
             <p style="color:#999;font-size:14px;">Professional electrostatic powder coating services for industrial and commercial applications in Jordan.</p>
         </div>
         <div>
@@ -217,7 +241,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="bottom">© 2026 Jordan Powder Coating. All Rights Reserved.</div>
+        <div class="bottom">© 2026 Alex Powder Coating. All Rights Reserved.</div>
     </div>
 </footer>
 
