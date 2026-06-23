@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جدول ألوان RAL - مصنع الطلاء بالبودرة في الأردن</title>
+    <title>جدول ألوان RAL - أليكس للطلاء بالبودرة</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; background: #f8f9fa; }
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
@@ -38,6 +38,12 @@
         .filter-bar button { padding: 10px 25px; border: none; background: #f0f2f5; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
         .filter-bar button:hover, .filter-bar button.active { background: #f0c040; color: #1a2a4a; }
 
+        .finish-note { background: #f0c040; padding: 20px 25px; border-radius: 12px; margin-top: 40px; text-align: center; border: 3px solid #1a2a4a; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .finish-note strong { font-size: 20px; color: #1a2a4a; }
+        .finish-note p { font-size: 17px; color: #1a2a4a; margin-top: 8px; }
+        .finish-note a { color: #1a2a4a; font-weight: bold; text-decoration: underline; background: white; padding: 4px 12px; border-radius: 5px; }
+        .finish-note a:hover { background: #1a2a4a; color: white; }
+
         footer { background: #1a2a4a; color: #ccc; padding: 40px 0; margin-top: 50px; }
         footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
         footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
@@ -47,19 +53,49 @@
         footer ul li a:hover { color: #f0c040; }
         footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
         @media (max-width: 768px) {
             header .container { flex-direction: column; gap: 10px; }
             nav a { margin: 0 10px; font-size: 14px; }
             .page-header h1 { font-size: 28px; }
             .color-grid-full .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .filter-bar .container { gap: 8px; }
+            .filter-bar button { padding: 8px 16px; font-size: 13px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; left: 20px; }
+            .finish-note { padding: 15px; }
+            .finish-note strong { font-size: 17px; }
+            .finish-note p { font-size: 15px; }
         }
     </style>
 </head>
 <body>
 
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/962775537233" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+
+<!-- ===== HEADER ===== -->
 <header>
     <div class="container">
-        <div class="logo">JPC <span>| الطلاء بالبودرة</span></div>
+        <div class="logo">APC <span>| الطلاء بالبودرة</span></div>
         <nav>
             <a href="/ar/index.html">الرئيسية</a>
             <a href="/ar/services.html">خدماتنا</a>
@@ -71,6 +107,7 @@
     </div>
 </header>
 
+<!-- ===== PAGE HEADER ===== -->
 <section class="page-header">
     <div class="container">
         <h1>🎨 جدول ألوان RAL</h1>
@@ -78,32 +115,47 @@
     </div>
 </section>
 
-<div class="filter-bar">
+<!-- ===== FILTER BAR ===== -->
+<div class="filter-bar" id="filterBar">
     <div class="container">
-        <button class="active">جميع الألوان</button>
-        <button>أحمر وبرتقالي</button>
-        <button>أصفر</button>
-        <button>أخضر</button>
-        <button>أزرق</button>
-        <button>رمادي وأبيض</button>
-        <button>أسود</button>
+        <button class="active" data-filter="all">جميع الألوان</button>
+        <button data-filter="red">أحمر وبرتقالي</button>
+        <button data-filter="yellow">أصفر</button>
+        <button data-filter="green">أخضر</button>
+        <button data-filter="blue">أزرق</button>
+        <button data-filter="grey">رمادي وأبيض</button>
+        <button data-filter="black">أسود</button>
+        <button data-filter="beige">بيج وبني</button>
     </div>
 </div>
 
+<!-- ===== COLOR GRID ===== -->
 <section class="color-grid-full">
     <div class="container">
-        <div class="grid">
+        <div class="grid" id="colorGrid">
 
-            <div class="color-card">
-                <div class="swatch" style="background:#d4a017;"></div>
+            <!-- RAL 8900 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#d4c4a8;"></div>
                 <div class="info">
-                    <div class="code">RAL 1007</div>
-                    <div class="name">أصفر زعفراني</div>
-                    <div class="finish">لامع</div>
+                    <div class="code">RAL 8900</div>
+                    <div class="name">بيج فاتح</div>
+                    <div class="finish">ساتان</div>
                 </div>
             </div>
 
-            <div class="color-card">
+            <!-- RAL 1013 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#e3dac9;"></div>
+                <div class="info">
+                    <div class="code">RAL 1013</div>
+                    <div class="name">أبيض صدفى</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- RAL 9010 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
                 <div class="swatch" style="background:#c4d4d4;"></div>
                 <div class="info">
                     <div class="code">RAL 9010</div>
@@ -112,43 +164,18 @@
                 </div>
             </div>
 
-            <div class="color-card">
-                <div class="swatch" style="background:#2c3e50;"></div>
+            <!-- RAL 7024 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#4a4f54;"></div>
                 <div class="info">
-                    <div class="code">RAL 7016</div>
-                    <div class="name">رمادي أنثراسيت</div>
+                    <div class="code">RAL 7024</div>
+                    <div class="name">رمادي جرانيت</div>
                     <div class="finish">ساتان</div>
                 </div>
             </div>
 
-            <div class="color-card">
-                <div class="swatch" style="background:#b22234;"></div>
-                <div class="info">
-                    <div class="code">RAL 3020</div>
-                    <div class="name">أحمر مروري</div>
-                    <div class="finish">لامع</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#1b4d3e;"></div>
-                <div class="info">
-                    <div class="code">RAL 6005</div>
-                    <div class="name">أخضر طحلبي</div>
-                    <div class="finish">ساتان</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#0057b8;"></div>
-                <div class="info">
-                    <div class="code">RAL 5015</div>
-                    <div class="name">أزرق سماوي</div>
-                    <div class="finish">لامع</div>
-                </div>
-            </div>
-
-            <div class="color-card">
+            <!-- RAL 9005 - Blacks -->
+            <div class="color-card" data-category="black">
                 <div class="swatch" style="background:#0a0a0a;"></div>
                 <div class="info">
                     <div class="code">RAL 9005</div>
@@ -157,7 +184,58 @@
                 </div>
             </div>
 
-            <div class="color-card">
+            <!-- RAL 9016 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#d9e0e6;"></div>
+                <div class="info">
+                    <div class="code">RAL 9016</div>
+                    <div class="name">أبيض مروري</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 9006 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#a0a8b0;"></div>
+                <div class="info">
+                    <div class="code">RAL 9006</div>
+                    <div class="name">ألمنيوم أبيض</div>
+                    <div class="finish">معدني</div>
+                </div>
+            </div>
+
+            <!-- RAL 9007 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#7a7f85;"></div>
+                <div class="info">
+                    <div class="code">RAL 9007</div>
+                    <div class="name">ألمنيوم رمادي</div>
+                    <div class="finish">معدني</div>
+                </div>
+            </div>
+
+            <!-- RAL 1035 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#b8a68c;"></div>
+                <div class="info">
+                    <div class="code">RAL 1035</div>
+                    <div class="name">بيج لؤلؤي</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- RAL 1007 - Yellows -->
+            <div class="color-card" data-category="yellow">
+                <div class="swatch" style="background:#d4a017;"></div>
+                <div class="info">
+                    <div class="code">RAL 1007</div>
+                    <div class="name">أصفر زعفراني</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 1015 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
                 <div class="swatch" style="background:#e8d5b5;"></div>
                 <div class="info">
                     <div class="code">RAL 1015</div>
@@ -166,61 +244,8 @@
                 </div>
             </div>
 
-            <div class="color-card">
-                <div class="swatch" style="background:#9b1b30;"></div>
-                <div class="info">
-                    <div class="code">RAL 3002</div>
-                    <div class="name">أحمر قرمزي</div>
-                    <div class="finish">لامع</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#b8b8b8;"></div>
-                <div class="info">
-                    <div class="code">RAL 7035</div>
-                    <div class="name">رمادي فاتح</div>
-                    <div class="finish">ساتان</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#4d9e3a;"></div>
-                <div class="info">
-                    <div class="code">RAL 6018</div>
-                    <div class="name">أخضر مصفر</div>
-                    <div class="finish">لامع</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#1f3a7a;"></div>
-                <div class="info">
-                    <div class="code">RAL 5002</div>
-                    <div class="name">أزرق فوق بحري</div>
-                    <div class="finish">لامع</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#442a1a;"></div>
-                <div class="info">
-                    <div class="code">RAL 8017</div>
-                    <div class="name">بني شوكولاتة</div>
-                    <div class="finish">ساتان</div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="swatch" style="background:#9a9a9a;"></div>
-                <div class="info">
-                    <div class="code">RAL 7042</div>
-                    <div class="name">رمادي مروري A</div>
-                    <div class="finish">ساتان</div>
-                </div>
-            </div>
-
-            <div class="color-card">
+            <!-- RAL 1023 - Yellows -->
+            <div class="color-card" data-category="yellow">
                 <div class="swatch" style="background:#e8b830;"></div>
                 <div class="info">
                     <div class="code">RAL 1023</div>
@@ -229,7 +254,78 @@
                 </div>
             </div>
 
-            <div class="color-card">
+            <!-- RAL 7016 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#2c3e50;"></div>
+                <div class="info">
+                    <div class="code">RAL 7016</div>
+                    <div class="name">رمادي أنثراسيت</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- RAL 7035 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#b8b8b8;"></div>
+                <div class="info">
+                    <div class="code">RAL 7035</div>
+                    <div class="name">رمادي فاتح</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- RAL 7042 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#9a9a9a;"></div>
+                <div class="info">
+                    <div class="code">RAL 7042</div>
+                    <div class="name">رمادي مروري A</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- RAL 3020 - Reds & Oranges -->
+            <div class="color-card" data-category="red">
+                <div class="swatch" style="background:#b22234;"></div>
+                <div class="info">
+                    <div class="code">RAL 3020</div>
+                    <div class="name">أحمر مروري</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 3002 - Reds & Oranges -->
+            <div class="color-card" data-category="red">
+                <div class="swatch" style="background:#9b1b30;"></div>
+                <div class="info">
+                    <div class="code">RAL 3002</div>
+                    <div class="name">أحمر قرمزي</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 6005 - Greens -->
+            <div class="color-card" data-category="green">
+                <div class="swatch" style="background:#1b4d3e;"></div>
+                <div class="info">
+                    <div class="code">RAL 6005</div>
+                    <div class="name">أخضر طحلبي</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- RAL 6018 - Greens -->
+            <div class="color-card" data-category="green">
+                <div class="swatch" style="background:#4d9e3a;"></div>
+                <div class="info">
+                    <div class="code">RAL 6018</div>
+                    <div class="name">أخضر مصفر</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 6034 - Greens -->
+            <div class="color-card" data-category="green">
                 <div class="swatch" style="background:#7cb0a0;"></div>
                 <div class="info">
                     <div class="code">RAL 6034</div>
@@ -238,14 +334,67 @@
                 </div>
             </div>
 
+            <!-- RAL 5015 - Blues -->
+            <div class="color-card" data-category="blue">
+                <div class="swatch" style="background:#0057b8;"></div>
+                <div class="info">
+                    <div class="code">RAL 5015</div>
+                    <div class="name">أزرق سماوي</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 5002 - Blues -->
+            <div class="color-card" data-category="blue">
+                <div class="swatch" style="background:#1f3a7a;"></div>
+                <div class="info">
+                    <div class="code">RAL 5002</div>
+                    <div class="name">أزرق فوق بحري</div>
+                    <div class="finish">لامع</div>
+                </div>
+            </div>
+
+            <!-- RAL 8017 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#442a1a;"></div>
+                <div class="info">
+                    <div class="code">RAL 8017</div>
+                    <div class="name">بني شوكولاتة</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
+            <!-- ===== CUSTOM COLOR: Charcoal Jotun 662 ===== -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#5e6166;"></div>
+                <div class="info">
+                    <div class="code">Jotun 662</div>
+                    <div class="name">فحمي</div>
+                    <div class="finish">ساتان</div>
+                </div>
+            </div>
+
         </div>
+
+        <!-- ===== FINISH NOTE (PROMINENT) ===== -->
+        <div class="finish-note">
+            <strong>🎨 خيارات التشطيب المتوفرة</strong>
+            <p>
+                التشطيبات المتوفرة <strong>(لامع، ساتان، مطفي)</strong> تختلف حسب اللون.
+                <br>
+                📞 اتصل بنا على <strong>+962 7 7553 7233</strong> أو 
+                <a href="/ar/contact.html">تواصل معنا هنا</a> لمعرفة خيارات التشطيب المحددة.
+            </p>
+        </div>
+
     </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
         <div>
-            <h4>الطلاء بالبودرة في الأردن</h4>
+            <h4>أليكس للطلاء بالبودرة</h4>
             <p style="color:#999;font-size:14px;">خدمات طلاء كهروستاتيكي احترافية للتطبيقات الصناعية والتجارية في الأردن.</p>
         </div>
         <div>
@@ -260,16 +409,42 @@
         <div>
             <h4>اتصل بنا</h4>
             <ul>
-                <li>📞 +962 7 1234 5678</li>
-                <li>✉️ info@jordanpowdercoating.com</li>
+                <li>📞 +962 7 7553 7233</li>
+                <li>✉️ alexpanossian69@gmail.com</li>
                 <li>📍 المدينة الصناعية، عمان</li>
             </ul>
         </div>
     </div>
     <div class="container">
-        <div class="bottom">© 2026 جميع الحقوق محفوظة - مصنع الطلاء بالبودرة في الأردن</div>
+        <div class="bottom">© 2026 جميع الحقوق محفوظة - أليكس للطلاء بالبودرة</div>
     </div>
 </footer>
+
+<!-- ===== JAVASCRIPT FOR FILTERING ===== -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('#filterBar button');
+        const colorCards = document.querySelectorAll('#colorGrid .color-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                colorCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        card.style.display = category === filterValue ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
