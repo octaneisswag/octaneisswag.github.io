@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAL Color Chart - Alex Powder Coating</title>
     <style>
-        /* Same header/footer styles as homepage - copy these from the homepage or I can provide a condensed version */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
         a { text-decoration: none; color: inherit; }
@@ -39,6 +38,9 @@
         .filter-bar button { padding: 10px 25px; border: none; background: #f0f2f5; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
         .filter-bar button:hover, .filter-bar button.active { background: #f0c040; color: #1a2a4a; }
 
+        .finish-note { background: #e8f0fe; padding: 15px 20px; border-radius: 8px; margin-top: 30px; text-align: center; border-left: 4px solid #f0c040; }
+        .finish-note strong { color: #1a2a4a; }
+
         footer { background: #1a2a4a; color: #ccc; padding: 40px 0; margin-top: 50px; }
         footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
         footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
@@ -48,20 +50,46 @@
         footer ul li a:hover { color: #f0c040; }
         footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
         @media (max-width: 768px) {
             header .container { flex-direction: column; gap: 10px; }
             nav a { margin: 0 10px; font-size: 14px; }
             .page-header h1 { font-size: 28px; }
             .color-grid-full .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .filter-bar .container { gap: 8px; }
+            .filter-bar button { padding: 8px 16px; font-size: 13px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
 
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/96275537233" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+
 <!-- ===== HEADER ===== -->
 <header>
     <div class="container">
-        <div class="logo">JPC <span>| Powder Coating</span></div>
+        <div class="logo">APC <span>| Powder Coating</span></div>
         <nav>
             <a href="/en/index.html">Home</a>
             <a href="/en/services.html">Services</a>
@@ -82,35 +110,46 @@
 </section>
 
 <!-- ===== FILTER BAR ===== -->
-<div class="filter-bar">
+<div class="filter-bar" id="filterBar">
     <div class="container">
-        <button class="active">All Colors</button>
-        <button>Reds & Oranges</button>
-        <button>Yellows</button>
-        <button>Greens</button>
-        <button>Blues</button>
-        <button>Grays & Whites</button>
-        <button>Blacks</button>
+        <button class="active" data-filter="all">All Colors</button>
+        <button data-filter="red">Reds & Oranges</button>
+        <button data-filter="yellow">Yellows</button>
+        <button data-filter="green">Greens</button>
+        <button data-filter="blue">Blues</button>
+        <button data-filter="grey">Grays & Whites</button>
+        <button data-filter="black">Blacks</button>
+        <button data-filter="beige">Beige & Browns</button>
     </div>
 </div>
 
 <!-- ===== COLOR GRID ===== -->
 <section class="color-grid-full">
     <div class="container">
-        <div class="grid">
+        <div class="grid" id="colorGrid">
 
-            <!-- RAL 1007 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#d4a017;"></div>
+            <!-- RAL 8900 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#d4c4a8;"></div>
                 <div class="info">
-                    <div class="code">RAL 1007</div>
-                    <div class="name">Saffron Yellow</div>
-                    <div class="finish">Glossy</div>
+                    <div class="code">RAL 8900</div>
+                    <div class="name">Light Beige</div>
+                    <div class="finish">Satin</div>
                 </div>
             </div>
 
-            <!-- RAL 9010 -->
-            <div class="color-card">
+            <!-- RAL 1013 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#e3dac9;"></div>
+                <div class="info">
+                    <div class="code">RAL 1013</div>
+                    <div class="name">Oyster White</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- RAL 9010 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
                 <div class="swatch" style="background:#c4d4d4;"></div>
                 <div class="info">
                     <div class="code">RAL 9010</div>
@@ -119,48 +158,18 @@
                 </div>
             </div>
 
-            <!-- RAL 7016 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#2c3e50;"></div>
+            <!-- RAL 7024 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#4a4f54;"></div>
                 <div class="info">
-                    <div class="code">RAL 7016</div>
-                    <div class="name">Anthracite Grey</div>
+                    <div class="code">RAL 7024</div>
+                    <div class="name">Granite Grey</div>
                     <div class="finish">Satin</div>
                 </div>
             </div>
 
-            <!-- RAL 3020 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#b22234;"></div>
-                <div class="info">
-                    <div class="code">RAL 3020</div>
-                    <div class="name">Traffic Red</div>
-                    <div class="finish">Glossy</div>
-                </div>
-            </div>
-
-            <!-- RAL 6005 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#1b4d3e;"></div>
-                <div class="info">
-                    <div class="code">RAL 6005</div>
-                    <div class="name">Moss Green</div>
-                    <div class="finish">Satin</div>
-                </div>
-            </div>
-
-            <!-- RAL 5015 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#0057b8;"></div>
-                <div class="info">
-                    <div class="code">RAL 5015</div>
-                    <div class="name">Sky Blue</div>
-                    <div class="finish">Glossy</div>
-                </div>
-            </div>
-
-            <!-- RAL 9005 -->
-            <div class="color-card">
+            <!-- RAL 9005 - Blacks -->
+            <div class="color-card" data-category="black">
                 <div class="swatch" style="background:#0a0a0a;"></div>
                 <div class="info">
                     <div class="code">RAL 9005</div>
@@ -169,8 +178,58 @@
                 </div>
             </div>
 
-            <!-- RAL 1015 -->
-            <div class="color-card">
+            <!-- RAL 9016 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#d9e0e6;"></div>
+                <div class="info">
+                    <div class="code">RAL 9016</div>
+                    <div class="name">Traffic White</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 9006 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#a0a8b0;"></div>
+                <div class="info">
+                    <div class="code">RAL 9006</div>
+                    <div class="name">White Aluminium</div>
+                    <div class="finish">Metallic</div>
+                </div>
+            </div>
+
+            <!-- RAL 9007 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#7a7f85;"></div>
+                <div class="info">
+                    <div class="code">RAL 9007</div>
+                    <div class="name">Grey Aluminium</div>
+                    <div class="finish">Metallic</div>
+                </div>
+            </div>
+
+            <!-- RAL 1035 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#b8a68c;"></div>
+                <div class="info">
+                    <div class="code">RAL 1035</div>
+                    <div class="name">Pearl Beige</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- RAL 1007 - Yellows -->
+            <div class="color-card" data-category="yellow">
+                <div class="swatch" style="background:#d4a017;"></div>
+                <div class="info">
+                    <div class="code">RAL 1007</div>
+                    <div class="name">Saffron Yellow</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 1015 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
                 <div class="swatch" style="background:#e8d5b5;"></div>
                 <div class="info">
                     <div class="code">RAL 1015</div>
@@ -179,68 +238,8 @@
                 </div>
             </div>
 
-            <!-- RAL 3002 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#9b1b30;"></div>
-                <div class="info">
-                    <div class="code">RAL 3002</div>
-                    <div class="name">Carmine Red</div>
-                    <div class="finish">Glossy</div>
-                </div>
-            </div>
-
-            <!-- RAL 7035 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#b8b8b8;"></div>
-                <div class="info">
-                    <div class="code">RAL 7035</div>
-                    <div class="name">Light Grey</div>
-                    <div class="finish">Satin</div>
-                </div>
-            </div>
-
-            <!-- RAL 6018 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#4d9e3a;"></div>
-                <div class="info">
-                    <div class="code">RAL 6018</div>
-                    <div class="name">Yellow Green</div>
-                    <div class="finish">Glossy</div>
-                </div>
-            </div>
-
-            <!-- RAL 5002 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#1f3a7a;"></div>
-                <div class="info">
-                    <div class="code">RAL 5002</div>
-                    <div class="name">Ultramarine Blue</div>
-                    <div class="finish">Glossy</div>
-                </div>
-            </div>
-
-            <!-- RAL 8017 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#442a1a;"></div>
-                <div class="info">
-                    <div class="code">RAL 8017</div>
-                    <div class="name">Chocolate Brown</div>
-                    <div class="finish">Satin</div>
-                </div>
-            </div>
-
-            <!-- RAL 7042 -->
-            <div class="color-card">
-                <div class="swatch" style="background:#9a9a9a;"></div>
-                <div class="info">
-                    <div class="code">RAL 7042</div>
-                    <div class="name">Traffic Grey A</div>
-                    <div class="finish">Satin</div>
-                </div>
-            </div>
-
-            <!-- RAL 1023 -->
-            <div class="color-card">
+            <!-- RAL 1023 - Yellows -->
+            <div class="color-card" data-category="yellow">
                 <div class="swatch" style="background:#e8b830;"></div>
                 <div class="info">
                     <div class="code">RAL 1023</div>
@@ -249,8 +248,78 @@
                 </div>
             </div>
 
-            <!-- RAL 6034 -->
-            <div class="color-card">
+            <!-- RAL 7016 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#2c3e50;"></div>
+                <div class="info">
+                    <div class="code">RAL 7016</div>
+                    <div class="name">Anthracite Grey</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- RAL 7035 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#b8b8b8;"></div>
+                <div class="info">
+                    <div class="code">RAL 7035</div>
+                    <div class="name">Light Grey</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- RAL 7042 - Grays & Whites -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#9a9a9a;"></div>
+                <div class="info">
+                    <div class="code">RAL 7042</div>
+                    <div class="name">Traffic Grey A</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- RAL 3020 - Reds & Oranges -->
+            <div class="color-card" data-category="red">
+                <div class="swatch" style="background:#b22234;"></div>
+                <div class="info">
+                    <div class="code">RAL 3020</div>
+                    <div class="name">Traffic Red</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 3002 - Reds & Oranges -->
+            <div class="color-card" data-category="red">
+                <div class="swatch" style="background:#9b1b30;"></div>
+                <div class="info">
+                    <div class="code">RAL 3002</div>
+                    <div class="name">Carmine Red</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 6005 - Greens -->
+            <div class="color-card" data-category="green">
+                <div class="swatch" style="background:#1b4d3e;"></div>
+                <div class="info">
+                    <div class="code">RAL 6005</div>
+                    <div class="name">Moss Green</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- RAL 6018 - Greens -->
+            <div class="color-card" data-category="green">
+                <div class="swatch" style="background:#4d9e3a;"></div>
+                <div class="info">
+                    <div class="code">RAL 6018</div>
+                    <div class="name">Yellow Green</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 6034 - Greens -->
+            <div class="color-card" data-category="green">
                 <div class="swatch" style="background:#7cb0a0;"></div>
                 <div class="info">
                     <div class="code">RAL 6034</div>
@@ -259,7 +328,54 @@
                 </div>
             </div>
 
+            <!-- RAL 5015 - Blues -->
+            <div class="color-card" data-category="blue">
+                <div class="swatch" style="background:#0057b8;"></div>
+                <div class="info">
+                    <div class="code">RAL 5015</div>
+                    <div class="name">Sky Blue</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 5002 - Blues -->
+            <div class="color-card" data-category="blue">
+                <div class="swatch" style="background:#1f3a7a;"></div>
+                <div class="info">
+                    <div class="code">RAL 5002</div>
+                    <div class="name">Ultramarine Blue</div>
+                    <div class="finish">Glossy</div>
+                </div>
+            </div>
+
+            <!-- RAL 8017 - Beige & Browns -->
+            <div class="color-card" data-category="beige">
+                <div class="swatch" style="background:#442a1a;"></div>
+                <div class="info">
+                    <div class="code">RAL 8017</div>
+                    <div class="name">Chocolate Brown</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
+            <!-- ===== CUSTOM COLOR: Charcoal Jotun 662 ===== -->
+            <div class="color-card" data-category="grey">
+                <div class="swatch" style="background:#5e6166;"></div>
+                <div class="info">
+                    <div class="code">Jotun 662</div>
+                    <div class="name">Charcoal</div>
+                    <div class="finish">Satin</div>
+                </div>
+            </div>
+
         </div>
+
+        <!-- ===== FINISH NOTE ===== -->
+        <div class="finish-note">
+            <strong>📌 Note:</strong> Available finishes (Glossy, Satin, Matte) vary by color. 
+            Please <a href="/en/contact.html" style="color:#1a2a4a; font-weight:bold; text-decoration:underline;">contact us</a> for specific finish options.
+        </div>
+
     </div>
 </section>
 
@@ -267,7 +383,7 @@
 <footer>
     <div class="container">
         <div>
-            <h4>Jordan Powder Coating</h4>
+            <h4>Alex Powder Coating</h4>
             <p style="color:#999;font-size:14px;">Professional electrostatic powder coating services for industrial and commercial applications in Jordan.</p>
         </div>
         <div>
@@ -282,16 +398,48 @@
         <div>
             <h4>Contact</h4>
             <ul>
-                <li>📞 +962 7 1234 5678</li>
-                <li>✉️ info@jordanpowdercoating.com</li>
+                <li>📞 +962 7 7553 7233</li>
+                <li>✉️ alexpanossian69@gmail.com</li>
                 <li>📍 Industrial City, Amman</li>
             </ul>
         </div>
     </div>
     <div class="container">
-        <div class="bottom">© 2026 Jordan Powder Coating. All Rights Reserved.</div>
+        <div class="bottom">© 2026 Alex Powder Coating. All Rights Reserved.</div>
     </div>
 </footer>
+
+<!-- ===== JAVASCRIPT FOR FILTERING ===== -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('#filterBar button');
+        const colorCards = document.querySelectorAll('#colorGrid .color-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked button
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                colorCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if (category === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
