@@ -1,59 +1,255 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>خدماتنا - الطلاء بالبودرة في الأردن</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا - أليكس للطلاء بالبودرة</title>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; line-height:1.8; color:#333; background:#f8f9fa; }
-        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
-        header { background:#1a2a4a; color:white; padding:15px 0; position:sticky; top:0; z-index:100; }
-        header .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-        .logo { font-size:24px; font-weight:bold; color:#f0c040; }
-        .logo span { color:white; font-weight:normal; }
-        nav a { color:white; margin-right:25px; font-size:16px; transition:color 0.3s; }
-        nav a:hover { color:#f0c040; }
-        .lang-switch { background:#f0c040; color:#1a2a4a; padding:8px 16px; border-radius:5px; font-weight:bold; }
-        .lang-switch:hover { background:#ffd966; }
-        .page-header { background:linear-gradient(135deg,#1a2a4a 0%,#2a4a7a 100%); color:white; padding:50px 0; text-align:center; }
-        .page-header h1 { font-size:40px; }
-        .page-header p { font-size:18px; opacity:0.8; margin-top:10px; }
-        .services-grid { padding:50px 0; }
-        .services-grid .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
-        .service-card { background:white; border-radius:10px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.08); border-bottom:4px solid #f0c040; transition:transform 0.3s; }
-        .service-card:hover { transform:translateY(-5px); }
-        .service-card .icon { font-size:40px; margin-bottom:15px; }
-        .service-card h3 { color:#1a2a4a; margin-bottom:10px; }
-        .service-card p { color:#666; font-size:15px; }
-        .service-card ul { list-style:disc; padding-right:20px; color:#666; font-size:14px; margin-top:10px; }
-        .service-card ul li { margin-bottom:5px; }
-        .cta-section { background:#1a2a4a; color:white; padding:60px 0; text-align:center; }
-        .cta-section h2 { font-size:32px; margin-bottom:15px; }
-        .cta-section p { font-size:18px; opacity:0.8; margin-bottom:30px; }
-        .btn { display:inline-block; background:#f0c040; color:#1a2a4a; padding:14px 40px; border-radius:30px; font-weight:bold; font-size:18px; transition:all 0.3s; }
-        .btn:hover { background:#ffd966; transform:scale(1.02); }
-        footer { background:#1a2a4a; color:#ccc; padding:40px 0; margin-top:50px; }
-        footer .container { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; }
-        footer h4 { color:white; margin-bottom:15px; font-size:18px; }
-        footer ul { list-style:none; }
-        footer ul li { margin-bottom:8px; }
-        footer ul li a { color:#ccc; transition:color 0.3s; }
-        footer ul li a:hover { color:#f0c040; }
-        footer .bottom { text-align:center; padding-top:30px; border-top:1px solid #333; margin-top:30px; font-size:14px; }
-        @media (max-width:768px) { header .container { flex-direction:column; gap:10px; } nav a { margin:0 10px; font-size:14px; } .page-header h1 { font-size:28px; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; background: #f8f9fa; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header { background: #1a2a4a; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: bold; color: #f0c040; }
+        .logo span { color: white; font-weight: normal; }
+        nav a { color: white; margin-right: 25px; font-size: 16px; transition: color 0.3s; }
+        nav a:hover { color: #f0c040; }
+        .lang-switch { background: #f0c040; color: #1a2a4a; padding: 8px 16px; border-radius: 5px; font-weight: bold; }
+        .lang-switch:hover { background: #ffd966; }
+
+        .page-header { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a7a 100%); color: white; padding: 50px 0; text-align: center; }
+        .page-header h1 { font-size: 40px; }
+        .page-header p { font-size: 18px; opacity: 0.8; margin-top: 10px; }
+
+        .since-badge {
+            background: #f0c040;
+            color: #1a2a4a;
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .services-grid { padding: 50px 0; }
+        .services-grid .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-bottom: 4px solid #f0c040; transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card .icon { font-size: 40px; margin-bottom: 15px; }
+        .service-card h3 { color: #1a2a4a; margin-bottom: 10px; }
+        .service-card p { color: #666; font-size: 15px; }
+        .service-card ul { list-style: disc; padding-right: 20px; color: #666; font-size: 14px; margin-top: 10px; }
+        .service-card ul li { margin-bottom: 5px; }
+
+        .stats { background: #1a2a4a; padding: 50px 0; margin-top: 30px; }
+        .stats .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+        .stats .stat h3 { color: #f0c040; font-size: 42px; }
+        .stats .stat p { color: #ccc; font-size: 16px; margin-top: 5px; }
+
+        .cta-section { background: #1a2a4a; color: white; padding: 60px 0; text-align: center; }
+        .cta-section h2 { font-size: 32px; margin-bottom: 15px; }
+        .cta-section p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
+        .btn { display: inline-block; background: #f0c040; color: #1a2a4a; padding: 14px 40px; border-radius: 30px; font-weight: bold; font-size: 18px; transition: all 0.3s; }
+        .btn:hover { background: #ffd966; transform: scale(1.02); }
+
+        footer { background: #1a2a4a; color: #ccc; padding: 40px 0; margin-top: 50px; }
+        footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 8px; }
+        footer ul li a { color: #ccc; transition: color 0.3s; }
+        footer ul li a:hover { color: #f0c040; }
+        footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; font-size: 14px; }
+            .page-header h1 { font-size: 28px; }
+            .services-grid .grid { grid-template-columns: 1fr; }
+            .stats .stat h3 { font-size: 32px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; left: 20px; }
+        }
     </style>
 </head>
 <body>
-<header><div class="container"><div class="logo">JPC <span>| الطلاء بالبودرة</span></div><nav><a href="/ar/index.html">الرئيسية</a><a href="/ar/services.html">خدماتنا</a><a href="/ar/colors.html">الألوان</a><a href="/ar/about.html">عن المصنع</a><a href="/ar/contact.html">اتصل بنا</a><a href="/en/services.html" class="lang-switch">English</a></nav></div></header>
-<section class="page-header"><div class="container"><h1>🔧 خدماتنا</h1><p>حلول شاملة للطلاء بالبودرة لتلبية جميع احتياجاتك الصناعية</p></div></section>
-<section class="services-grid"><div class="container"><div class="grid">
-<div class="service-card"><div class="icon">🏗️</div><h3>الطلاء الصناعي</h3><p>طلاء بالبودرة ثقيل للمعدات الإنشائية والهياكل الفولاذية والآلات الصناعية.</p><ul><li>قطع بطول يصل إلى 6 أمتار</li><li>مقاومة عالية للتآكل</li><li>سمك يصل إلى 120 ميكرون</li></ul></div>
-<div class="service-card"><div class="icon">🚗</div><h3>قطع السيارات</h3><p>طلاء دقيق لمكونات السيارات والعجلات والقطع المخصصة مع متانة ممتازة.</p><ul><li>عجلات الألمنيوم</li><li>أجزاء التعليق</li><li>مكونات المحرك</li></ul></div>
-<div class="service-card"><div class="icon">🏠</div><h3>الطلاء المعماري</h3><p>طلاءات جمالية ومتينة لواجهات المباني والدرابزين وإطارات النوافذ والأبواب المعدنية.</p><ul><li>قطاعات الألمنيوم</li><li>درابزين فولاذي</li><li>ألوان مخصصة</li></ul></div>
-<div class="service-card"><div class="icon">🧹</div><h3>تجهيز الأسطح</h3><p>خدمات معالجة مسبقة كاملة تشمل السفع الرملي والفوسفات والتنظيف الكيميائي.</p><ul><li>السفع الرملي</li><li>إزالة الشحوم</li><li>الفوسفات</li></ul></div>
-<div class="service-card"><div class="icon">🎨</div><h3>مطابقة الألوان المخصصة</h3><p>يمكننا مطابقة أي لون تريده، بما في ذلك درجات RAL أو NCS أو Pantone المخصصة.</p><ul><li>جدول ألوان RAL</li><li>تركيبات مخصصة</li><li>تشطيبات لامعة وساتان</li></ul></div>
-<div class="service-card"><div class="icon">📦</div><h3>الطلاء بكميات كبيرة</h3><p>خدمات طلاء عالية الحجم للإنتاج بكميات كبيرة مع جودة متسقة.</p><ul><li>سرعة في التسليم</li><li>أسعار تنافسية</li><li>جودة متسقة</li></ul></div>
-</div></div></section>
-<section class="cta-section"><div class="container"><h2>هل أنت مستعد لبدء مشروعك؟</h2><p>اتصل بنا اليوم للحصول على عرض سعر واستشارة مجانية.</p><a href="/ar/contact.html" class="btn">اطلب عرض سعر</a></div></section>
-<footer><div class="container"><div><h4>الطلاء بالبودرة في الأردن</h4><p style="color:#999;font-size:14px;">خدمات طلاء كهروستاتيكي احترافية للتطبيقات الصناعية والتجارية في الأردن.</p></div><div><h4>روابط سريعة</h4><ul><li><a href="/ar/services.html">خدماتنا</a></li><li><a href="/ar/colors.html">جدول الألوان</a></li><li><a href="/ar/about.html">عن المصنع</a></li><li><a href="/ar/contact.html">اتصل بنا</a></li></ul></div><div><h4>اتصل بنا</h4><ul><li>📞 +962 7 1234 5678</li><li>✉️ info@jordanpowdercoating.com</li><li>📍 المدينة الصناعية، عمان</li></ul></div></div><div class="container"><div class="bottom">© 2026 جميع الحقوق محفوظة - مصنع الطلاء بالبودرة في الأردن</div></div></footer>
+
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/962775537233" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+        <div class="logo">APC <span>| الطلاء بالبودرة</span></div>
+        <nav>
+            <a href="/ar/index.html">الرئيسية</a>
+            <a href="/ar/services.html">خدماتنا</a>
+            <a href="/ar/colors.html">الألوان</a>
+            <a href="/ar/about.html">عن المصنع</a>
+            <a href="/ar/contact.html">اتصل بنا</a>
+            <a href="/en/services.html" class="lang-switch">English</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <div class="container">
+        <h1>🔧 خدماتنا</h1>
+        <p>حلول شاملة للطلاء بالبودرة لتلبية جميع احتياجاتك الصناعية</p>
+        <div class="since-badge">🏭 خدمات الطلاء بالبودرة منذ 1996</div>
+    </div>
+</section>
+
+<!-- ===== SERVICES GRID ===== -->
+<section class="services-grid">
+    <div class="container">
+        <div class="grid">
+
+            <div class="service-card">
+                <div class="icon">🏗️</div>
+                <h3>الطلاء الصناعي</h3>
+                <p>طلاء بالبودرة ثقيل للمعدات الإنشائية والهياكل الفولاذية والآلات الصناعية.</p>
+                <ul>
+                    <li>قطع بطول يصل إلى 7.5 أمتار</li>
+                    <li>السمك: 70-100 ميكرون</li>
+                    <li>مقاومة عالية للتآكل</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🏠</div>
+                <h3>الطلاء المعماري</h3>
+                <p>طلاءات جمالية ومتينة لواجهات المباني والدرابزين وإطارات النوافذ والأبواب المعدنية.</p>
+                <ul>
+                    <li>قطاعات الألمنيوم</li>
+                    <li>درابزين فولاذي</li>
+                    <li>ألوان مخصصة</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🧹</div>
+                <h3>تجهيز الأسطح</h3>
+                <p>خدمات معالجة مسبقة كاملة تشمل السفع الرملي وإزالة الشحوم وإزالة الأكسدة.</p>
+                <ul>
+                    <li>السفع الرملي</li>
+                    <li>إزالة الشحوم</li>
+                    <li>إزالة الأكسدة</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🎨</div>
+                <h3>مطابقة الألوان المخصصة</h3>
+                <p>يمكننا مطابقة أي لون تريده، بما في ذلك درجات RAL أو NCS أو Pantone المخصصة.</p>
+                <ul>
+                    <li>جدول ألوان RAL</li>
+                    <li>تركيبات مخصصة</li>
+                    <li>تشطيبات لامعة، ساتان، ومطفية</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📦</div>
+                <h3>الطلاء بكميات كبيرة</h3>
+                <p>خدمات طلاء عالية الحجم للإنتاج بكميات كبيرة مع جودة متسقة.</p>
+                <ul>
+                    <li>سرعة في التسليم</li>
+                    <li>أسعار تنافسية</li>
+                    <li>جودة متسقة</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== STATS SECTION ===== -->
+<section class="stats">
+    <div class="container">
+        <div class="grid">
+            <div class="stat">
+                <h3>20+</h3>
+                <p>سنوات من الخبرة</p>
+            </div>
+            <div class="stat">
+                <h3>30+</h3>
+                <p>عميل صناعي</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>لون متوفر</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>جودة مضمونة</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta-section">
+    <div class="container">
+        <h2>هل أنت مستعد لبدء مشروعك؟</h2>
+        <p>اتصل بنا اليوم للحصول على عرض سعر واستشارة مجانية.</p>
+        <a href="/ar/contact.html" class="btn">اطلب عرض سعر</a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div>
+            <h4>أليكس للطلاء بالبودرة</h4>
+            <p style="color:#999;font-size:14px;">خدمات طلاء كهروستاتيكي احترافية للتطبيقات الصناعية والتجارية في الأردن.</p>
+        </div>
+        <div>
+            <h4>روابط سريعة</h4>
+            <ul>
+                <li><a href="/ar/services.html">خدماتنا</a></li>
+                <li><a href="/ar/colors.html">جدول الألوان</a></li>
+                <li><a href="/ar/about.html">عن المصنع</a></li>
+                <li><a href="/ar/contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>اتصل بنا</h4>
+            <ul>
+                <li>📞 +962 7 7553 7233</li>
+                <li>✉️ alexpanossian69@gmail.com</li>
+                <li>📍 المدينة الصناعية، عمان</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bottom">© 2026 جميع الحقوق محفوظة - أليكس للطلاء بالبودرة</div>
+    </div>
+</footer>
+
 </body>
 </html>
