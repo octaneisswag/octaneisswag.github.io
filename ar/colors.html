@@ -2,70 +2,70 @@
 <html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>جدول ألوان RAL - أليكس للطلاء بالبودرة</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; background: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; background: #f8f9fa; -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         header { background: #1a2a4a; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
         header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo { font-size: 24px; font-weight: bold; color: #f0c040; }
+        .logo { font-size: 20px; font-weight: bold; color: #f0c040; }
         .logo span { color: white; font-weight: normal; }
-        nav a { color: white; margin-right: 25px; font-size: 16px; transition: color 0.3s; }
-        nav a:hover { color: #f0c040; }
-        .lang-switch { background: #f0c040; color: #1a2a4a; padding: 8px 16px; border-radius: 5px; font-weight: bold; }
-        .lang-switch:hover { background: #ffd966; }
+        nav { display: flex; flex-wrap: wrap; gap: 8px; }
+        nav a { color: white; font-size: 14px; padding: 6px 12px; border-radius: 5px; transition: color 0.3s, background 0.3s; }
+        nav a:hover { color: #f0c040; background: rgba(240, 192, 64, 0.1); }
+        .lang-switch { background: #f0c040; color: #1a2a4a; padding: 6px 14px; border-radius: 5px; font-weight: bold; }
+        .lang-switch:hover { background: #ffd966; color: #1a2a4a; }
 
-        .page-header { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a7a 100%); color: white; padding: 50px 0; text-align: center; }
-        .page-header h1 { font-size: 40px; }
-        .page-header p { font-size: 18px; opacity: 0.8; margin-top: 10px; }
+        .page-header { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a7a 100%); color: white; padding: 40px 0; text-align: center; }
+        .page-header h1 { font-size: 28px; }
+        .page-header p { font-size: 16px; opacity: 0.8; margin-top: 5px; }
 
-        .color-grid-full { padding: 50px 0; }
-        .color-grid-full .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-        .color-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
-        .color-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-        .color-card .swatch { height: 120px; border-bottom: 3px solid #f0c040; }
-        .color-card .info { padding: 15px; }
-        .color-card .code { font-weight: bold; font-size: 18px; color: #1a2a4a; }
-        .color-card .name { color: #666; font-size: 14px; margin-top: 3px; }
-        .color-card .finish { color: #999; font-size: 12px; margin-top: 5px; background: #f0f2f5; display: inline-block; padding: 2px 12px; border-radius: 10px; }
+        .color-grid-full { padding: 30px 0; }
+        .color-grid-full .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .color-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: transform 0.3s; text-align: center; }
+        .color-card:hover { transform: translateY(-3px); }
+        .color-card .swatch { height: 80px; border-bottom: 3px solid #f0c040; }
+        .color-card .info { padding: 10px; }
+        .color-card .code { font-weight: bold; font-size: 15px; color: #1a2a4a; }
+        .color-card .name { color: #666; font-size: 12px; margin-top: 2px; }
+        .color-card .finish { color: #999; font-size: 11px; margin-top: 3px; background: #f0f2f5; display: inline-block; padding: 2px 10px; border-radius: 10px; }
 
-        .filter-bar { background: white; padding: 20px 0; border-bottom: 2px solid #f0c040; margin-bottom: 30px; }
-        .filter-bar .container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .filter-bar button { padding: 10px 25px; border: none; background: #f0f2f5; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        .filter-bar { background: white; padding: 15px 0; border-bottom: 2px solid #f0c040; margin-bottom: 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .filter-bar .container { display: flex; gap: 8px; flex-wrap: nowrap; }
+        .filter-bar button { padding: 8px 16px; border: none; background: #f0f2f5; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 13px; transition: all 0.3s; white-space: nowrap; flex-shrink: 0; }
         .filter-bar button:hover, .filter-bar button.active { background: #f0c040; color: #1a2a4a; }
 
-        .finish-note { background: #f0c040; padding: 20px 25px; border-radius: 12px; margin-top: 40px; text-align: center; border: 3px solid #1a2a4a; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .finish-note strong { font-size: 20px; color: #1a2a4a; }
-        .finish-note p { font-size: 17px; color: #1a2a4a; margin-top: 8px; }
-        .finish-note a { color: #1a2a4a; font-weight: bold; text-decoration: underline; background: white; padding: 4px 12px; border-radius: 5px; }
-        .finish-note a:hover { background: #1a2a4a; color: white; }
+        .finish-note { background: #f0c040; padding: 15px 20px; border-radius: 10px; margin-top: 30px; text-align: center; border: 2px solid #1a2a4a; }
+        .finish-note strong { font-size: 17px; color: #1a2a4a; }
+        .finish-note p { font-size: 15px; color: #1a2a4a; margin-top: 5px; }
+        .finish-note a { color: #1a2a4a; font-weight: bold; text-decoration: underline; background: white; padding: 2px 10px; border-radius: 4px; }
 
         footer { background: #1a2a4a; color: #ccc; padding: 40px 0; margin-top: 50px; }
-        footer .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        footer .container { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        footer h4 { color: white; margin-bottom: 12px; font-size: 17px; }
         footer ul { list-style: none; }
-        footer ul li { margin-bottom: 8px; }
+        footer ul li { margin-bottom: 6px; font-size: 14px; }
         footer ul li a { color: #ccc; transition: color 0.3s; }
         footer ul li a:hover { color: #f0c040; }
-        footer .bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; margin-top: 30px; font-size: 14px; }
+        footer .bottom { text-align: center; padding-top: 25px; border-top: 1px solid #333; margin-top: 25px; font-size: 13px; }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             background: #25d366;
             color: white;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 28px;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             z-index: 999;
             transition: transform 0.3s;
@@ -73,17 +73,32 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        @media (max-width: 768px) {
-            header .container { flex-direction: column; gap: 10px; }
-            nav a { margin: 0 10px; font-size: 14px; }
-            .page-header h1 { font-size: 28px; }
-            .color-grid-full .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-            .filter-bar .container { gap: 8px; }
-            .filter-bar button { padding: 8px 16px; font-size: 13px; }
-            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; left: 20px; }
-            .finish-note { padding: 15px; }
-            .finish-note strong { font-size: 17px; }
-            .finish-note p { font-size: 15px; }
+        @media (min-width: 480px) {
+            .color-grid-full .grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (min-width: 768px) {
+            header .container { flex-wrap: nowrap; }
+            .logo { font-size: 24px; }
+            nav a { font-size: 16px; padding: 8px 16px; }
+            .page-header h1 { font-size: 40px; }
+            .page-header p { font-size: 18px; }
+            .page-header { padding: 50px 0; }
+            .color-grid-full .grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .color-card .swatch { height: 120px; }
+            .color-card .info { padding: 15px; }
+            .color-card .code { font-size: 18px; }
+            .filter-bar .container { flex-wrap: wrap; gap: 15px; }
+            .filter-bar button { padding: 10px 25px; font-size: 14px; }
+            .finish-note { padding: 20px 25px; }
+            .finish-note strong { font-size: 20px; }
+            .finish-note p { font-size: 17px; }
+            footer .container { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .whatsapp-float { width: 60px; height: 60px; font-size: 32px; bottom: 30px; left: 30px; }
+        }
+
+        @media (min-width: 1024px) {
+            .color-grid-full .grid { grid-template-columns: repeat(6, 1fr); }
         }
     </style>
 </head>
@@ -100,8 +115,8 @@
             <a href="/ar/index.html">الرئيسية</a>
             <a href="/ar/services.html">خدماتنا</a>
             <a href="/ar/colors.html">الألوان</a>
-            <a href="/ar/about.html">عن المصنع</a>
             <a href="/ar/contact.html">اتصل بنا</a>
+            <a href="/ar/about.html">عن المصنع</a>
             <a href="/en/colors.html" class="lang-switch">English</a>
         </nav>
     </div>
@@ -134,7 +149,7 @@
     <div class="container">
         <div class="grid" id="colorGrid">
 
-            <!-- ===== WHITES, CREAMS & BEIGES ===== -->
+            <!-- WHITES, CREAMS & BEIGES -->
             <div class="color-card" data-category="white">
                 <div class="swatch" style="background:#e8e0d0;"></div>
                 <div class="info">
@@ -198,7 +213,7 @@
                 </div>
             </div>
 
-            <!-- ===== YELLOWS & ORANGES ===== -->
+            <!-- YELLOWS & ORANGES -->
             <div class="color-card" data-category="yellow">
                 <div class="swatch" style="background:#E88C00;"></div>
                 <div class="info">
@@ -253,7 +268,7 @@
                 </div>
             </div>
 
-            <!-- ===== REDS ===== -->
+            <!-- REDS -->
             <div class="color-card" data-category="red">
                 <div class="swatch" style="background:#a72920;"></div>
                 <div class="info">
@@ -281,7 +296,7 @@
                 </div>
             </div>
 
-            <!-- ===== BLUES ===== -->
+            <!-- BLUES -->
             <div class="color-card" data-category="blue">
                 <div class="swatch" style="background:#3a5a8a;"></div>
                 <div class="info">
@@ -318,7 +333,7 @@
                 </div>
             </div>
 
-            <!-- ===== GREENS ===== -->
+            <!-- GREENS -->
             <div class="color-card" data-category="green">
                 <div class="swatch" style="background:#1b4d3e;"></div>
                 <div class="info">
@@ -346,7 +361,7 @@
                 </div>
             </div>
 
-            <!-- ===== GREYS ===== -->
+            <!-- GREYS -->
             <div class="color-card" data-category="grey">
                 <div class="swatch" style="background:#b8b8b8;"></div>
                 <div class="info">
@@ -401,7 +416,7 @@
                 </div>
             </div>
 
-            <!-- ===== BROWNS & BLACKS ===== -->
+            <!-- BROWNS & BLACKS -->
             <div class="color-card" data-category="brown">
                 <div class="swatch" style="background:#8a6a3a;"></div>
                 <div class="info">
@@ -449,13 +464,13 @@
 
         </div>
 
-        <!-- ===== FINISH NOTE ===== -->
+        <!-- FINISH NOTE -->
         <div class="finish-note">
             <strong>🎨 خيارات التشطيب المتوفرة</strong>
             <p>
                 التشطيبات المتوفرة <strong>(لامع، ساتان، مطفي، معدني)</strong> تختلف حسب اللون.
                 <br>
-                📞 اتصل بنا على <strong><span dir="ltr">+962 7 7553 7233</span></strong> أو 
+                📞 اتصل بنا على <strong><a href="tel:+962775537233" style="color:#1a2a4a; text-decoration:underline; direction:ltr; display:inline-block;">+962 7 7553 7233</a></strong> أو 
                 <a href="/ar/contact.html">تواصل معنا هنا</a> لمعرفة خيارات التشطيب المحددة.
             </p>
         </div>
@@ -482,8 +497,8 @@
         <div>
             <h4>اتصل بنا</h4>
             <ul>
-                <li>📞 <span dir="ltr">+962 7 7553 7233</span></li>
-                <li>✉️ alexpanossian69@gmail.com</li>
+                <li>📞 <a href="tel:+962775537233" style="color:inherit; text-decoration:none; direction:ltr; display:inline-block;">+962 7 7553 7233</a></li>
+                <li>✉️ <a href="mailto:alexpanossian69@gmail.com" style="color:inherit; text-decoration:none;">alexpanossian69@gmail.com</a></li>
                 <li>📍 المدينة الصناعية، عمان</li>
             </ul>
         </div>
@@ -493,7 +508,6 @@
     </div>
 </footer>
 
-<!-- ===== JAVASCRIPT FOR FILTERING ===== -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const filterButtons = document.querySelectorAll('#filterBar button');
